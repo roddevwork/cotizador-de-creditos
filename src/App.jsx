@@ -1,5 +1,8 @@
 import { useState } from "react"
 import Header from "./components/Header"
+import Button from "./components/Button"
+import { formaterarDinero } from "./helpers"
+
 
 
 function App() {
@@ -14,12 +17,49 @@ function App() {
     setCantidad(Number(event.target.value))
   }
 
+  function handleClickDecremento() {
+    const valor = cantidad - STEP
 
-  // const hola = "Hola Mundo"
+    if (valor < MIN) {
+      return
+    }
+    setCantidad(valor)
+
+
+  }
+  function handleClickIncremento() {
+    const valor = cantidad + STEP
+
+    if (valor > MAX) {
+      return
+    }
+
+    setCantidad(valor)
+
+
+  }
+
+
+
+
+  // const saludo = "Hola Mundo"
 
   return (
     <div className="my-20 max-w-lg mx-auto bg-white shadow p-10">
       <Header />
+
+      <div className="flex justify-between my-6">
+        <Button
+          operador='-'
+          fn={handleClickDecremento}
+        />
+        <Button
+          operador='+'
+          fn={handleClickIncremento}
+        />
+
+
+      </div>
 
       <input
         type="range"
@@ -31,13 +71,12 @@ function App() {
         value={cantidad}
       />
 
-      <p className="text-center my-10 text-5xl font-extrabold text-indigo-600">{`$${cantidad}`}</p>
+      <p className="text-center my-10 text-5xl font-extrabold text-indigo-600">{formaterarDinero(cantidad)}</p>
     </div>
 
 
 
-    // { hola }
-    // <h1 className='text-6xl font-extrabold p-10 bg-blue-600 text-white'>Hola Mundo</h1>
+    // <h1 className='text-6xl font-extrabold p-10 bg-blue-600 text-white'>{saludo}</h1>
   )
 }
 
