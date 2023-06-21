@@ -9,7 +9,7 @@
 - [click here]( https://roddevwork.github.io/cotizador-de-creditos/)
 
 <kbd>
- <img src="public/home-page.png)" alt="home page" width="200px">
+ <img src="public/home-page.png" alt="home page" width="200px">
 </kbd>
  
 ---
